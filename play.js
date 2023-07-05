@@ -1,15 +1,13 @@
 const net = require("net");
 const { connect } = require("./client");
 const { setupInput } = require("./input");
-//call the connect funtion
-const conn = connect();
-//interpret data
-conn.setEncoding("utf8");
 
-// Event handler for data
-conn.on('data', (data) => {
-  console.log("Server says:", data);
+console.log("Connecting ...");
+const conn = connect();
+
+conn.on("connect", () => {
+  console.log("Successfully connected to game server");
+  conn.write("Name: JML");
 });
 
-// Call the setupInput function
-setupInput();
+setupInput(conn);

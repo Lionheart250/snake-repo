@@ -1,4 +1,7 @@
-const setupInput = function () {
+let conn;
+
+const setupInput = function (connection) {
+  conn = connection;
   const stdin = process.stdin;
   stdin.setRawMode(true);
   stdin.setEncoding("utf8");
@@ -11,12 +14,25 @@ const setupInput = function () {
 const handleUserInput = function (key) {
   if (key === '\u0003') {
     process.exit();
+  } else if (key === 'w') {
+    conn.write("Move: up");
+  } else if (key === 'a') {
+    conn.write("Move: left");
+  } else if (key === 's') {
+    conn.write("Move: down");
+  } else if (key === 'd') {
+    conn.write("Move: right");
   }
-  // Other key handling logic here
-  console.log("Connecting ...");
-const conn = connect();
 };
 
 module.exports = {
   setupInput,
 };
+
+
+
+
+
+
+
+
