@@ -22,6 +22,8 @@ const handleUserInput = function (key) {
     conn.write("Move: down");
   } else if (key === 'd') {
     conn.write("Move: right");
+  } else if (key  === '1') {
+    conn.write("say: hi there");
   }
 };
 
