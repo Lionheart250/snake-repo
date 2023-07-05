@@ -1,4 +1,5 @@
 const net = require("net");
+
 // establishes a connection with the game server
 const connect = function () {
   const conn = net.createConnection({
@@ -7,11 +8,14 @@ const connect = function () {
   });
 
   conn.on("connect", () => {
-    console.log("Sucessfully connected to game server");
+    console.log("Successfully connected to game server");
     conn.write("Name: JML");
-    //conn.write("Move: up");
+    // conn.write("Move: up");
   });
 
   return conn;
 };
-  module.exports = connect;
+
+module.exports = {
+  connect,
+};
