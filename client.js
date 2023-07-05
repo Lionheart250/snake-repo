@@ -6,6 +6,11 @@ const connect = function () {
     port: 50541, // PORT number here,
   });
 
+  conn.on("connect", () => {
+    console.log("Sucessfully connected to game server");
+    conn.write("Name: JML");
+  });
+
   return conn;
 };
   module.exports = connect;
